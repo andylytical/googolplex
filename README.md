@@ -14,7 +14,7 @@ Printing to `/dev/null` should be the fastest "print" possible.  It appears that
 Consider the following example:
 > Printing 10<sup>10</sup> zeros in groups of 100 took 99 seconds.
 > 
-> But printing the same number of zeros in groups of 10000 took only 4 seconds.
+> However, printing the same number of zeros in groups of 10000 took only 4 seconds.
 
-I predict that printing 10<sup>10</sup) zeros in even larger groups will have similar results. Finding the limit of these gains (by printing ever larger groups of zeros) is beyond the scope of this project.
+I predict that printing 10<sup>10</sup>) zeros in even larger groups will have similar results (ie: print more in less time). Finding the limit of these gains (by printing ever larger groups of zeros) is beyond the scope of this project.
 
