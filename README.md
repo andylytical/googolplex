@@ -9,12 +9,17 @@ From wikipedia: [https://en.wikipedia.org/wiki/Googolplex]
 This also takes a long time since screen updates are slow (compared to disk I/O). Disk I/O is slow compared to memory I/O.
 
 # What about just printing to "nowhere"?
-Printing to `/dev/null` should be the fastest "print" possible.  It appears that even when printing to `/dev/null` a file system "open" call still happens, so printing a reasonably large string each time makes the most sense.
+Printing to `/dev/null` should be the fastest "print" possible.  The program is still "print"-ing the data, but we are not looking at it.  It appears that even when printing to `/dev/null` a file system "open" call still happens, so printing a reasonably large string each time makes the most sense.
 
 Consider the following example:
 > Printing 10<sup>10</sup> zeros in groups of 100 took 99 seconds.
 > 
 > However, printing the same number of zeros in groups of 10000 took only 4 seconds.
 
-I predict that printing 10<sup>10</sup>) zeros in even larger groups will have similar results (ie: print more in less time). Finding the limit of these gains (by printing ever larger groups of zeros) is beyond the scope of this project.
+I predict that printing 10<sup>100</sup>) zeros in ever larger groups will have similar results (ie: print more in less time). Finding the limit of these gains (by printing ever larger groups of zeros) is beyond the scope of this project.
+
+To accomplish this (writing zeros to `/dev/null`), run the program as follows:
+* `python doit.py > /dev/null`
+
+# Patterns Evolve
 

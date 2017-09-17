@@ -2,37 +2,37 @@
 
 import datetime
 import sys
-#import logging
 
-MIN = 3
-MAX = 6
-BASE_PWR = 6
+MIN = 1
+MAX = 9
+BASE_PWR = 10
 H = "0" * ( 10 ** BASE_PWR )
-#VAL = 0
-
-
-#def increment():
-#    global VAL
-#    VAL += 1
-#    logging.debug( VAL )
 
 
 def eprint( *a, **k ):
+    ''' Print to stderr
+    '''
     print( *a, file=sys.stderr, **k )
 
 
 def oneH():
+    ''' Print one "H", which was originally a string of one-hundred zeros,
+        but is now a string of zeros, the length of which is defined above.
+    '''
     print(H)
 
 
 def do_power_10_times( x, func ):
+    ''' Do func "alotof" times, where "alotof" is defined as 10 to the "x" power
+        PARAMS:
+            x : integer : repeat "func" 10^x power times
+            func : method reference : the function to called multiple times
+    '''
     # Base case
     if x == 1:
-#        logging.debug( "base case" )
         for i in range( 10 ):
             func()
     elif x > 1:
-#        logging.debug( "exponent={}".format( x ) )
         for i in range( 10 ):
             do_power_10_times( x - 1, func )
     else:
@@ -47,25 +47,20 @@ def run():
     eprint( "Exponent, Total Zeros, Elapsed Seconds, Micro-Seconds" )
     fmt = "{:>8}, {:>11}, {:>15}, {:>13}"
 
+    # Loop over increaseing powers of 10 till a pattern emerges in the output
     for power in range( MIN, MAX + 1 ):
-#        global VAL
-#        VAL = 0
         start_time = datetime.datetime.now()
-#        do_power_10_times( power, increment )
         do_power_10_times( power, oneH )
         end_time = datetime.datetime.now()
         elapsed = end_time - start_time
         total_zeros = "10^" + str( ( power + BASE_PWR ) )
         ( secs, microsecs ) = str( elapsed.total_seconds() ).split( '.' )
         eprint( fmt.format( power, total_zeros, secs, microsecs ) )
+
     eprint()
     eprint( "DONE" )
     eprint()
 
 if __name__== "__main__":
-#    logging.basicConfig( 
-#        format='(%(funcName)s [%(lineno)s]):%(message)s', 
-#        level=logging.WARNING
-#        )
     run()
 
