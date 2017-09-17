@@ -46,8 +46,8 @@ def run():
     eprint( "=" * 43 )
     eprint( "Time to print 10^{} * 10^n-th power of zeros".format( BASE_PWR ) )
     eprint( "-" * 43 )
-    eprint( "Exponent, Total Zeros, Elapsed Seconds, Micro-Seconds" )
-    fmt = "{:>8}, {:>11}, {:>15}, {:>13}"
+    eprint( "Exponent, Total Zeros, Elapsed Seconds" )
+    fmt = "{:>8}, {:>11}, {:>15f}"
 
     # Loop over increaseing powers of 10 till a pattern emerges in the output
     for power in range( MIN, MAX + 1 ):
@@ -56,8 +56,7 @@ def run():
         end_time = datetime.datetime.now()
         elapsed = end_time - start_time
         total_zeros = "10^" + str( ( power + BASE_PWR ) )
-        ( secs, microsecs ) = str( elapsed.total_seconds() ).split( '.' )
-        eprint( fmt.format( power, total_zeros, secs, microsecs ) )
+        eprint( fmt.format( power, total_zeros, elapsed.total_seconds() ) )
 
     eprint()
     eprint( "DONE" )
@@ -65,4 +64,3 @@ def run():
 
 if __name__== "__main__":
     run()
-
