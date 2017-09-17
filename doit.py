@@ -1,10 +1,12 @@
-#!/usr/local/bin/python
+#!/bin/env python
+
+from __future__ import print_function
 
 import datetime
 import sys
 
 MIN = 1
-MAX = 9
+MAX = 10
 BASE_PWR = 10
 H = "0" * ( 10 ** BASE_PWR )
 
