@@ -56,7 +56,7 @@ Exponent, Total Zeros, Elapsed Seconds
        7,       10^17,       77.189416
        8,       10^18,      767.758355
        9,       10^19,     7783.759926
-      10,       10^20,    
+      10,       10^20,    76909.167232
 ```
 The output shown is from two runs using different lengths for the string of zeros that was printed for each line.  The patterns discussed are identical in each run (as well as other runs that are not shown here).
 
